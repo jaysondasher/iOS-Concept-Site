@@ -23,6 +23,7 @@ const StatusBar: React.FC<StatusBarProps> = ({ isMobile }) => {
             setDate(now.toLocaleDateString('en-US', options));
         };
 
+
         updateTime();
         const interval = setInterval(updateTime, 60000); // Update every minute
 
