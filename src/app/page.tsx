@@ -22,10 +22,49 @@ export default function Home() {
     }, []);
 
     return (
-        <main className="min-h-screen">
-            <div className={`mx-auto ${isMobile ? 'mobile-device' : 'tablet-device'}`}>
-                <HomeScreen isMobile={isMobile} />
-            </div>
+        <main className="min-h-screen w-full flex items-center justify-center">
+            {/* Site background - only visible on desktop */}
+            {!isMobile && <div className="site-background"></div>}
+
+            {isMobile ? (
+                <div className="mobile-container">
+                    {/* Northern lights effects outside the frame - hidden on mobile */}
+                    <div className="mobile-glow"></div>
+                    <div className="mobile-aurora-top"></div>
+                    <div className="mobile-aurora-right"></div>
+                    <div className="mobile-aurora-bottom"></div>
+                    <div className="mobile-aurora-left"></div>
+
+                    {/* Mobile status bar and notch */}
+                    <div className="mobile-status-bar"></div>
+                    <div className="mobile-notch"></div>
+
+                    {/* Actual mobile device - full screen on mobile */}
+                    <div className="mobile-device">
+                        <div className="mobile-screen">
+                            <HomeScreen isMobile={true} />
+                        </div>
+                        <div className="mobile-home-indicator"></div>
+                    </div>
+                </div>
+            ) : (
+                <div className="ipad-container">
+                    {/* Northern lights effects outside the frame */}
+                    <div className="ipad-glow"></div>
+                    <div className="aurora-top"></div>
+                    <div className="aurora-right"></div>
+                    <div className="aurora-bottom"></div>
+                    <div className="aurora-left"></div>
+
+                    {/* Actual iPad device */}
+                    <div className="tablet-device">
+                        <div className="volume-button"></div>
+                        <div className="tablet-screen">
+                            <HomeScreen isMobile={false} />
+                        </div>
+                    </div>
+                </div>
+            )}
         </main>
     );
 } 

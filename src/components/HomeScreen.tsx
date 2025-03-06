@@ -78,7 +78,7 @@ interface HomeScreenProps {
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ isMobile }) => {
     return (
-        <div className="min-h-screen pb-24 relative">
+        <div className="h-full w-full relative overflow-auto">
             {/* Wallpaper */}
             <Image
                 src="/SequoiaLight.png"
@@ -86,19 +86,21 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ isMobile }) => {
                 fill
                 className="ios-wallpaper"
                 priority
+                sizes="100vw"
             />
 
             {/* Status Bar */}
             <StatusBar isMobile={isMobile} />
 
-            {/* Profile Widget */}
-            <div className="p-4 sm:p-8">
-                <div className="mb-8">
+            {/* Content Container */}
+            <div className="p-4 sm:p-8 relative z-10 h-full">
+                {/* Profile Widget */}
+                <div className={`mb-8 ${isMobile ? 'max-w-full' : 'max-w-2xl'}`}>
                     <ProfileWidget />
                 </div>
 
                 {/* App Grid */}
-                <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 sm:gap-6 mt-8">
+                <div className={`grid ${isMobile ? 'grid-cols-4 gap-4' : 'grid-cols-6 gap-8'} mt-8`}>
                     {projects.map((project, index) => (
                         <AppIcon
                             key={index}
@@ -112,9 +114,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ isMobile }) => {
             </div>
 
             {/* Dock */}
-            <div className="fixed bottom-4 left-0 right-0 flex justify-center">
+            <div className="absolute bottom-8 left-0 right-0 flex justify-center z-10">
                 <div className="ios-dock">
-                    <div className="flex gap-4 sm:gap-8">
+                    <div className="flex gap-6 sm:gap-10">
                         {dockApps.map((app, index) => (
                             <AppIcon
                                 key={index}
