@@ -20,12 +20,13 @@ export const ProfileWidget: React.FC = () => {
     return (
         <Widget title="About Me" className="max-w-md">
             <div className="flex items-center gap-4">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden bg-gray-200">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden bg-gray-200">
                     <Image
                         src="/jayson.jpeg"
                         alt="Jayson Dasher"
                         fill
                         className="object-cover"
+                        style={{ objectPosition: "center 0px", objectFit: "cover", transform: "scale(1.05)" }}
                     />
                 </div>
                 <div>

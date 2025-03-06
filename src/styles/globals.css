@@ -537,8 +537,8 @@ body {
 
     .p-4.sm\:p-8.relative.z-10.h-full {
         padding: 16px !important;
-        padding-top: 60px !important;
-        /* Increased padding for status bar */
+        padding-top: 45px !important;
+        /* Reduced padding for status bar */
         padding-bottom: 80px !important;
         /* Increased padding for home indicator and dock */
     }
@@ -556,7 +556,12 @@ body {
     }
 
     .ios-monochrome-widget {
-        margin-top: 10px !important;
+        margin-top: 0 !important;
+    }
+
+    /* Adjust widget title spacing */
+    .ios-monochrome-widget h3.text-sm.font-semibold.text-gray-500.mb-2 {
+        margin-bottom: 8px !important;
     }
 }
 
