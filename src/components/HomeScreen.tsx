@@ -8,37 +8,37 @@ import StatusBar from './StatusBar';
 const projects = [
     {
         name: 'Project 1',
-        icon: '🚀',
+        icon: '/icons/rocket.svg',
         url: 'https://example.com/project1',
         color: '#FF3B30'
     },
     {
         name: 'Project 2',
-        icon: '💻',
+        icon: '/icons/code.svg',
         url: 'https://example.com/project2',
         color: '#34C759'
     },
     {
         name: 'Project 3',
-        icon: '🎮',
+        icon: '/icons/gamepad.svg',
         url: 'https://example.com/project3',
         color: '#007AFF'
     },
     {
         name: 'Project 4',
-        icon: '📱',
+        icon: '/icons/mobile.svg',
         url: 'https://example.com/project4',
         color: '#5856D6'
     },
     {
         name: 'Project 5',
-        icon: '🎨',
+        icon: '/icons/palette.svg',
         url: 'https://example.com/project5',
         color: '#FF9500'
     },
     {
         name: 'Project 6',
-        icon: '🔍',
+        icon: '/icons/search.svg',
         url: 'https://example.com/project6',
         color: '#AF52DE'
     }
@@ -48,25 +48,25 @@ const projects = [
 const dockApps = [
     {
         name: 'GitHub',
-        icon: '🐙',
-        url: 'https://github.com/yourusername',
+        icon: '/icons/github.svg',
+        url: 'https://github.com/jaysondasher',
         color: '#333333'
     },
     {
         name: 'LinkedIn',
-        icon: '🔗',
-        url: 'https://linkedin.com/in/yourusername',
+        icon: '/icons/linkedin.svg',
+        url: 'https://www.linkedin.com/in/jayson-dasher',
         color: '#0077B5'
     },
     {
         name: 'Email',
-        icon: '✉️',
-        url: 'mailto:your.email@example.com',
+        icon: '/icons/envelope.svg',
+        url: 'mailto:jayson@simplifygolf.app',
         color: '#1D76F2'
     },
     {
         name: 'Resume',
-        icon: '📄',
+        icon: '/icons/document.svg',
         url: '/resume.pdf',
         color: '#FF2D55'
     }
