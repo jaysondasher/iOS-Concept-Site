@@ -32,7 +32,7 @@ export const ProfileWidget: React.FC = () => {
                 <div>
                     <h2 className="text-xl font-bold">Jayson Dasher</h2>
                     <p className="text-sm text-gray-600">
-                        Software Developer & Designer
+                        iOS Developer
                     </p>
                     <p className="text-xs text-gray-500 mt-1">
                         Building beautiful digital experiences
@@ -40,8 +40,9 @@ export const ProfileWidget: React.FC = () => {
                 </div>
             </div>
             <p className="mt-4 text-sm text-gray-700">
-                I'm a passionate developer focused on creating intuitive and engaging user experiences.
-                With expertise in modern web technologies, I build applications that are both functional and delightful.
+                I develop intuitive and engaging user experiences for iOS platforms.
+                My focus is on creating applications that are both functional and enjoyable to use,
+                with attention to detail and clean design principles.
             </p>
         </Widget>
     );
