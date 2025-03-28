@@ -1,6 +1,6 @@
-# Jayson Dasher Portfolio
+# iOS Concept Site
 
-A personal portfolio website designed to mimic an iOS device interface. The website displays like an iPad homescreen on desktop and an iPhone homescreen on mobile devices, with realistic device frames and UI elements.
+A personal website designed to mimic an iOS device interface. The website displays like an iPad homescreen on desktop and an iPhone homescreen on mobile devices, with realistic device frames and UI elements.
 
 ## Features
 
@@ -31,8 +31,8 @@ A personal portfolio website designed to mimic an iOS device interface. The webs
 
 1. Clone the repository
 ```bash
-git clone https://github.com/jaysondasher/PortfolioSite.git
-cd PortfolioSite
+git clone https://github.com/jaysondasher/iOS-Concept-Site.git
+cd iOS-Concept-Site
 ```
 
 2. Install dependencies
@@ -49,7 +49,7 @@ npm run dev
 
 ## Customization
 
-To customize this portfolio with your own information:
+To customize this site with your own information:
 
 1. Replace the profile image in `/public/jayson.jpeg`
 2. Replace the wallpaper images in `/public/SequoiaLight.png` and `/public/Sequoia-Trees.jpg`
