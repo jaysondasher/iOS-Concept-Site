@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['i.imgur.com', 'github.com'],
+        domains: ['i.imgur.com', 'github.com', 'picsum.photos'],
         formats: ['image/avif', 'image/webp'],
         remotePatterns: [
             {
@@ -13,6 +13,11 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'i.imgur.com',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'picsum.photos',
                 pathname: '**',
             },
         ],

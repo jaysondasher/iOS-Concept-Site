@@ -3,16 +3,35 @@ import Image from 'next/image';
 import { AppData } from '@/hooks/useAppData';
 import AppModal from './AppModal';
 
+// Define a custom app type that can have an onClick handler
+export interface CustomApp {
+    id: string;
+    name: string;
+    icon: string;
+    color?: string;
+    onClick?: () => void;
+}
+
 interface AppGridProps {
-    apps: AppData[];
+    apps: (AppData | CustomApp)[];
     isMobile: boolean;
 }
 
 const AppGrid: React.FC<AppGridProps> = ({ apps, isMobile }) => {
     const [selectedApp, setSelectedApp] = useState<AppData | null>(null);
 
-    const handleAppClick = (app: AppData) => {
-        setSelectedApp(app);
+    const handleAppClick = (app: AppData | CustomApp) => {
+        // If app has onClick handler, call it
+        if ('onClick' in app && app.onClick) {
+            app.onClick();
+            return;
+        }
+
+        // Otherwise treat it as a regular app and show modal
+        // We check for properties unique to AppData to ensure it's the right type
+        if ('description' in app && 'features' in app && 'screenshots' in app) {
+            setSelectedApp(app as AppData);
+        }
     };
 
     const closeModal = () => {
@@ -30,6 +49,9 @@ const AppGrid: React.FC<AppGridProps> = ({ apps, isMobile }) => {
                     >
                         <div
                             className="ios-app-icon relative w-16 h-16 sm:w-20 sm:h-20 rounded-[22%] overflow-hidden shadow-lg cursor-pointer transform transition-transform hover:scale-105"
+                            style={{
+                                backgroundColor: 'color' in app ? app.color || 'transparent' : 'transparent'
+                            }}
                         >
                             <Image
                                 src={app.icon}
