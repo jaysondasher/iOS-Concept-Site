@@ -564,6 +564,29 @@ body {
     .ios-monochrome-widget h3.text-sm.font-semibold.text-gray-500.mb-2 {
         margin-bottom: 8px !important;
     }
+
+    /* Mobile styles for Settings app header */
+    .fixed.top-0.left-0.right-0.z-\[250\] {
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        padding-top: env(safe-area-inset-top, 0px) !important;
+        z-index: 9999 !important;
+    }
+
+    .dark .fixed.top-0.left-0.right-0.z-\[250\] {
+        background-color: rgba(17, 24, 39, 0.9) !important;
+    }
+
+    .mt-safe {
+        margin-top: env(safe-area-inset-top, 0px);
+    }
+
+    .overflow-y-auto {
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: env(safe-area-inset-bottom, 20px) !important;
+        margin-bottom: env(safe-area-inset-bottom, 20px) !important;
+    }
 }
 
 .ios-wallpaper {
@@ -863,5 +886,952 @@ body {
     .swiper-button-next,
     .swiper-button-prev {
         background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+/* Add fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* iOS Settings Icons */
+.ios-settings-icon {
+    border-radius: 8px;
+    color: white;
+}
+
+/* iOS Switches (toggles) */
+.ios-switch .peer-checked\:bg-green-500 {
+    background-color: #34C759 !important;
+    /* iOS green color */
+}
+
+/* iOS-style settings rows */
+.bg-white.dark\:bg-gray-800.rounded-xl.overflow-hidden .px-4.py-3 {
+    position: relative;
+}
+
+.bg-white.dark\:bg-gray-800.rounded-xl.overflow-hidden .px-4.py-3:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    right: 0;
+    height: 1px;
+    background-color: rgba(229, 231, 235, 0.5);
+    /* gray-200 at 50% opacity */
+}
+
+.dark .bg-white.dark\:bg-gray-800.rounded-xl.overflow-hidden .px-4.py-3:after {
+    background-color: rgba(55, 65, 81, 0.5);
+    /* gray-700 at 50% opacity */
+}
+
+.bg-white.dark\:bg-gray-800.rounded-xl.overflow-hidden .px-4.py-3:last-child:after {
+    display: none;
+}
+
+/* Safe area utilities for iOS devices */
+.pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+}
+
+.pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+.pl-safe {
+    padding-left: env(safe-area-inset-left, 0px);
+}
+
+.pr-safe {
+    padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+
+    /* Safari-specific fix for full-height containers */
+    .fixed.inset-0.z-\[150\].overflow-hidden {
+        height: -webkit-fill-available !important;
+    }
+
+    /* Ensure scrollable content works properly */
+    .flex-1.overflow-y-auto {
+        height: calc(100vh - 6rem - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
+        padding-bottom: 100px !important;
+        /* Extra padding to ensure visibility */
+    }
+}
+
+/* Mobile container settings */
+.fixed.inset-0.z-\[150\] {
+    padding-top: 0 !important;
+    height: 100% !important;
+    position: fixed !important;
+    overflow: hidden !important;
+}
+
+.overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: env(safe-area-inset-bottom, 20px) !important;
+    margin-bottom: env(safe-area-inset-bottom, 20px) !important;
+}
+
+/* iOS Settings Modal Styles */
+.ios-settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f7;
+}
+
+.dark .ios-settings-modal {
+    background-color: #000;
+}
+
+.ios-settings-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.ios-settings-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(242, 242, 247, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+    padding: 0 16px;
+    padding-top: env(safe-area-inset-top, 0px);
+}
+
+.dark .ios-settings-header {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ios-settings-done-btn {
+    color: #007aff;
+    font-size: 17px;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: left;
+    padding: 8px 0;
+}
+
+/* Dark mode Done button override */
+.ios-settings-done-btn-dark {
+    color: #39a9ff !important;
+    text-shadow: 0 0 2px rgba(57, 169, 255, 0.3) !important;
+    font-weight: 600 !important;
+}
+
+/* Add special styles for dark mode Done button */
+@media (prefers-color-scheme: dark) {
+    .ios-settings-done-btn {
+        color: #39a9ff !important;
+        /* Brighter blue */
+        opacity: 1 !important;
+        text-shadow: 0 0 2px rgba(57, 169, 255, 0.2) !important;
+    }
+
+    .ios-settings-done-btn:hover {
+        color: #5eb8ff !important;
+    }
+}
+
+.ios-settings-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+}
+
+.dark .ios-settings-title {
+    color: #fff;
+}
+
+.ios-settings-spacer {
+    min-width: 60px;
+}
+
+/* iOS settings search container */
+.ios-settings-search-container {
+    padding: 4px 16px;
+    background-color: rgba(242, 242, 247, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky;
+    top: 44px;
+    top: calc(44px + env(safe-area-inset-top, 0px));
+    z-index: 99;
+}
+
+.dark .ios-settings-search-container {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 767px) {
+    .ios-settings-search-container {
+        padding: 0 16px 4px 16px;
+        position: relative;
+        top: auto;
+    }
+}
+
+.ios-settings-search-inner {
+    position: relative;
+}
+
+.ios-settings-search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.ios-settings-search-input {
+    width: 100%;
+    background-color: rgba(142, 142, 147, 0.12);
+    border-radius: 10px;
+    padding: 8px 10px 8px 35px;
+    font-size: 17px;
+    color: #000;
+    border: none;
+    outline: none;
+}
+
+.dark .ios-settings-search-input {
+    background-color: rgba(142, 142, 147, 0.2);
+    color: #fff;
+}
+
+.ios-settings-search-input::placeholder {
+    color: #8e8e93;
+}
+
+.ios-settings-content {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.ios-settings-section {
+    padding: 16px 16px 8px;
+}
+
+.ios-settings-section-title {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    color: #8e8e93;
+    margin-bottom: 6px;
+    padding: 0 10px;
+}
+
+.ios-settings-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .ios-settings-card {
+    background-color: #1c1c1e;
+}
+
+.ios-settings-mt {
+    margin-top: 16px;
+}
+
+.ios-settings-user-profile {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    position: relative;
+}
+
+.ios-settings-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #e5e5ea;
+    margin-right: 14px;
+}
+
+.dark .ios-settings-avatar {
+    background-color: #2c2c2e;
+}
+
+.ios-settings-avatar-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, #4f46e5, #9333ea);
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.ios-settings-user-info {
+    flex: 1;
+}
+
+.ios-settings-user-name {
+    font-size: 17px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 2px;
+}
+
+.dark .ios-settings-user-name {
+    color: #fff;
+}
+
+.ios-settings-user-subtitle {
+    font-size: 15px;
+    color: #8e8e93;
+}
+
+.ios-settings-chevron {
+    color: #c7c7cc;
+}
+
+.ios-settings-chevron-small {
+    width: 16px;
+    height: 16px;
+    color: #c7c7cc;
+}
+
+.ios-settings-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    position: relative;
+}
+
+.ios-settings-row-border::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .ios-settings-row-border::after {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.ios-settings-row-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 14px;
+}
+
+.ios-settings-row-label {
+    flex: 1;
+    font-size: 17px;
+    color: #000;
+}
+
+.dark .ios-settings-row-label {
+    color: #fff;
+}
+
+.ios-settings-row-value {
+    display: flex;
+    align-items: center;
+}
+
+.ios-settings-row-value-text {
+    font-size: 17px;
+    color: #8e8e93;
+    margin-right: 6px;
+}
+
+.ios-settings-switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.ios-settings-switch-track {
+    width: 51px;
+    height: 31px;
+    background-color: #e5e5ea;
+    border-radius: 31px;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.dark .ios-settings-switch-track {
+    background-color: #3a3a3c;
+}
+
+.ios-settings-switch input:checked+.ios-settings-switch-track {
+    background-color: #34c759;
+}
+
+.ios-settings-switch-track::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s;
+}
+
+.ios-settings-switch input:checked+.ios-settings-switch-track::after {
+    transform: translateX(20px);
+}
+
+.ios-settings-wallpaper-preview {
+    position: relative;
+    height: 160px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px 16px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .ios-settings-wallpaper-preview {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.ios-settings-wallpaper-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 16px;
+}
+
+.ios-settings-wallpaper-item {
+    position: relative;
+    height: 90px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.ios-settings-wallpaper-selected {
+    border-color: #007aff;
+}
+
+.ios-settings-wallpaper-check {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    background-color: #007aff;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ios-settings-random-wallpaper-btn {
+    background-color: #007aff;
+    color: white;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 12px;
+    margin: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ios-settings-feedback {
+    text-align: center;
+    color: #34c759;
+    margin-top: 12px;
+    font-size: 15px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.ios-settings-detail-section {
+    padding: 16px;
+}
+
+.ios-settings-tech-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ios-settings-tech-item {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 17px;
+}
+
+.dark .ios-settings-tech-item {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.ios-settings-tech-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.ios-settings-tech-name {
+    color: #000;
+}
+
+.dark .ios-settings-tech-name {
+    color: #fff;
+}
+
+.ios-settings-tech-version {
+    color: #8e8e93;
+}
+
+.ios-settings-version-item {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .ios-settings-version-item {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.ios-settings-version-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.ios-settings-version-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.ios-settings-version-number {
+    font-weight: 500;
+    color: #000;
+    font-size: 17px;
+}
+
+.dark .ios-settings-version-number {
+    color: #fff;
+}
+
+.ios-settings-version-date {
+    color: #8e8e93;
+    font-size: 15px;
+}
+
+.ios-settings-version-changes {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #8e8e93;
+    font-size: 15px;
+}
+
+.ios-settings-storage-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e5e5ea;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.dark .ios-settings-storage-bar {
+    background-color: #3a3a3c;
+}
+
+.ios-settings-storage-bar-fill {
+    height: 100%;
+    background-color: #007aff;
+    border-radius: 4px;
+}
+
+.ios-settings-storage-items {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ios-settings-storage-item {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .ios-settings-storage-item {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.ios-settings-storage-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.ios-settings-storage-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 12px;
+    margin-top: 4px;
+}
+
+.ios-settings-storage-details {
+    flex: 1;
+}
+
+.ios-settings-storage-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.ios-settings-storage-name {
+    color: #000;
+    font-size: 17px;
+}
+
+.dark .ios-settings-storage-name {
+    color: #fff;
+}
+
+.ios-settings-storage-size {
+    color: #8e8e93;
+    font-size: 15px;
+}
+
+.ios-settings-storage-bar-small {
+    width: 100%;
+    height: 5px;
+    background-color: #e5e5ea;
+    border-radius: 2.5px;
+    overflow: hidden;
+}
+
+.dark .ios-settings-storage-bar-small {
+    background-color: #3a3a3c;
+}
+
+.ios-settings-storage-bar-fill-small {
+    height: 100%;
+    border-radius: 2.5px;
+}
+
+.ios-settings-safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 30px);
+    height: 50px;
+}
+
+/* Hide desktop header on mobile and show mobile nav */
+@media (max-width: 767px) {
+    .ios-settings-desktop-only {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .ios-settings-mobile-nav {
+        display: none !important;
+    }
+}
+
+/* Mobile-specific navigation bar */
+.ios-settings-mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 44px;
+    background-color: rgba(242, 242, 247, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    padding-top: env(safe-area-inset-top, 0);
+    z-index: 9999;
+    box-sizing: content-box;
+}
+
+.dark .ios-settings-mobile-nav {
+    background-color: rgba(28, 28, 30, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ios-settings-mobile-done-btn {
+    color: #007aff;
+    font-size: 17px;
+    font-weight: 600;
+    min-width: 60px;
+    min-height: 30px;
+    text-align: left;
+    padding: 6px 12px;
+    margin-left: -12px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    -webkit-tap-highlight-color: rgba(0, 122, 255, 0.1);
+    position: relative;
+    z-index: 10000;
+}
+
+.ios-settings-mobile-done-btn:active {
+    background-color: rgba(0, 122, 255, 0.1);
+}
+
+.ios-settings-mobile-done-btn-dark {
+    color: #0a84ff !important;
+    text-shadow: 0 0 1px rgba(10, 132, 255, 0.3) !important;
+    font-weight: bold !important;
+    opacity: 1 !important;
+}
+
+.dark .ios-settings-mobile-done-btn {
+    color: #0a84ff !important;
+}
+
+.ios-settings-mobile-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+}
+
+.dark .ios-settings-mobile-title {
+    color: #fff;
+}
+
+/* Full Mobile Container & Content Layout Fix */
+@media (max-width: 767px) {
+
+    /* Container layout with fixed padding for our absolute header */
+    .ios-settings-container {
+        display: block;
+        padding-top: 84px !important;
+        /* 40px for status bar + 44px for header */
+        max-height: 100vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Search container spacing */
+    .ios-settings-search-container {
+        position: relative;
+        margin-top: 8px;
+        z-index: 98;
+        max-height: 60px;
+    }
+
+    /* Content spacing */
+    .ios-settings-content {
+        margin-top: 0;
+    }
+
+    /* First section padding */
+    .ios-settings-section:first-child {
+        padding-top: 10px;
+    }
+
+    /* Hide any conflicting headers */
+    .ios-settings-back-button-container,
+    .ios-settings-header {
+        display: none !important;
+    }
+}
+
+/* iOS back button styles - make sure it's visible */
+.ios-settings-back-button-container {
+    position: fixed;
+    top: env(safe-area-inset-top, 0px);
+    left: 0;
+    right: 0;
+    height: 44px;
+    background-color: rgba(242, 242, 247, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    display: flex !important;
+    align-items: center;
+    padding: 0 16px;
+    z-index: 9999;
+}
+
+.dark .ios-settings-back-button-container {
+    background-color: rgba(28, 28, 30, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ios-settings-back-button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 8px 0;
+    border: none;
+    color: #007aff;
+    font-weight: 600;
+    font-size: 18px;
+    -webkit-tap-highlight-color: rgba(0, 122, 255, 0.1);
+    position: relative;
+    z-index: 10001;
+}
+
+.dark .ios-settings-back-button {
+    color: #0a84ff;
+    font-weight: 600;
+    text-shadow: 0 0 2px rgba(10, 132, 255, 0.2);
+}
+
+.ios-settings-back-button:active {
+    opacity: 0.7;
+}
+
+.ios-settings-back-text {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* Content spacer */
+.ios-settings-content-spacer {
+    height: 16px;
+}
+
+/* Mobile Title Styles */
+.ios-settings-mobile-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+}
+
+.dark .ios-settings-mobile-title {
+    color: #fff;
+}
+
+/* Desktop Settings App Containment */
+@media (min-width: 768px) {
+    .ios-settings-modal {
+        position: absolute !important;
+        inset: 0 !important;
+        border-radius: calc(var(--ipad-corner-radius) - 10px);
+        overflow: hidden;
+    }
+
+    /* Hide the absolutely positioned header on desktop */
+    .ios-settings-modal>div[style*="position: absolute"] {
+        display: none !important;
+    }
+
+    /* Desktop Settings header styling */
+    .ios-settings-header {
+        display: flex !important;
+        background-color: rgba(242, 242, 247, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 0 16px;
+        height: 44px;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .dark .ios-settings-header {
+        background-color: rgba(28, 28, 30, 0.95);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .ios-settings-desktop-only {
+        display: flex !important;
+    }
+
+    /* Desktop Done button */
+    .ios-settings-done-btn {
+        color: #007aff;
+        font-size: 17px;
+        font-weight: 600;
+        background: none;
+        border: none;
+        padding: 8px 0;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .dark .ios-settings-done-btn {
+        color: #0a84ff;
+    }
+}
+
+/* Keep fullscreen modal on mobile */
+@media (max-width: 767px) {
+    .ios-settings-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
     }
 }
