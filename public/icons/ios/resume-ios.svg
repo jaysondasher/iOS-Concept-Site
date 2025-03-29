@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Modern iOS icon with gradient background -->
+  <defs>
+    <linearGradient id="background" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5A76" />
+      <stop offset="100%" stop-color="#FF2D55" />
+    </linearGradient>
+  </defs>
+  
+  <!-- App icon background -->
+  <rect x="0" y="0" width="512" height="512" rx="120" ry="120" fill="url(#background)"/>
+  
+  <!-- Modern document icon -->
+  <g fill="white">
+    <!-- Base document symbol -->
+    <path d="M336 128H176c-8.8 0-16 7.2-16 16v224c0 8.8 7.2 16 16 16h160c8.8 0 16-7.2 16-16V144c0-8.8-7.2-16-16-16z" opacity="0.9"/>
+    
+    <!-- Text lines -->
+    <rect x="192" y="176" width="128" height="12" rx="6" ry="6" opacity="0.7"/>
+    <rect x="192" y="208" width="128" height="12" rx="6" ry="6" opacity="0.7"/>
+    <rect x="192" y="240" width="128" height="12" rx="6" ry="6" opacity="0.7"/>
+    <rect x="192" y="272" width="88" height="12" rx="6" ry="6" opacity="0.7"/>
+    
+    <!-- Abstract profile image -->
+    <circle cx="228" cy="336" r="16" opacity="0.8"/>
+    <rect x="260" y="324" width="60" height="10" rx="5" ry="5" opacity="0.7"/>
+    <rect x="260" y="342" width="40" height="10" rx="5" ry="5" opacity="0.7"/>
+  </g>
+</svg> 

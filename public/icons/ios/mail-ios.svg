@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- iOS rounded rectangle background -->
+  <rect x="0" y="0" width="512" height="512" rx="92" ry="92" fill="url(#mail-gradient)"/>
+  
+  <!-- Mail icon -->
+  <path d="M386 150H126c-15.5 0-28 12.5-28 28v156c0 15.5 12.5 28 28 28h260c15.5 0 28-12.5 28-28V178c0-15.5-12.5-28-28-28zm0 28l-130 81.2L126 178h260zm0 156H126V206l130 81.2 130-81.2v128z" fill="white"/>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="mail-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007AFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#56AAFF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg> 

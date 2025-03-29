@@ -31,7 +31,7 @@ const AppIcon: React.FC<AppIconProps> = ({ name, icon, url, color = '#ffffff' })
                         alt={name}
                         width={60}
                         height={60}
-                        className="w-3/5 h-3/5 object-contain"
+                        className={`${icon.includes('/ios/') ? 'w-full h-full object-cover' : 'w-3/5 h-3/5 object-contain'}`}
                     />
                 ) : (
                     <span className="text-2xl sm:text-3xl">{icon}</span>

@@ -433,8 +433,8 @@ body {
         border-radius: 0;
         height: 100%;
         width: 100%;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
+        overflow: hidden;
+        -webkit-overflow-scrolling: none;
         padding-top: 40px;
         padding-bottom: 20px;
     }
@@ -528,11 +528,12 @@ body {
         padding: 0 !important;
     }
 
-    .h-full.w-full.relative.overflow-auto {
+    .h-full.w-full.relative {
         padding: 0 !important;
         margin: 0 !important;
         height: 100vh !important;
         width: 100vw !important;
+        overflow: hidden !important;
     }
 
     .p-4.sm\:p-8.relative.z-10.h-full {

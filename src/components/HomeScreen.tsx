@@ -48,27 +48,27 @@ const projects = [
 const dockApps = [
     {
         name: 'GitHub',
-        icon: '/icons/github.svg',
+        icon: '/icons/ios/github-ios.svg',
         url: 'https://github.com/jaysondasher',
-        color: '#333333'
+        color: 'transparent'
     },
     {
         name: 'LinkedIn',
-        icon: '/icons/linkedin.svg',
+        icon: '/icons/ios/linkedin-ios.svg',
         url: 'https://www.linkedin.com/in/jayson-dasher',
-        color: '#0077B5'
+        color: 'transparent'
     },
     {
-        name: 'Email',
-        icon: '/icons/envelope.svg',
+        name: 'Mail',
+        icon: '/icons/ios/mail-ios.svg',
         url: 'mailto:jayson@simplifygolf.app',
-        color: '#1D76F2'
+        color: 'transparent'
     },
     {
         name: 'Resume',
-        icon: '/icons/document.svg',
+        icon: '/icons/ios/resume-ios.svg',
         url: '/resume.pdf',
-        color: '#FF2D55'
+        color: 'transparent'
     }
 ];
 
@@ -78,7 +78,7 @@ interface HomeScreenProps {
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ isMobile }) => {
     return (
-        <div className="h-full w-full relative overflow-auto">
+        <div className="h-full w-full relative">
             {/* Wallpaper */}
             <Image
                 src="/SequoiaLight.png"
