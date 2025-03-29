@@ -2,9 +2,20 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: [],
+        domains: ['i.imgur.com', 'github.com'],
         formats: ['image/avif', 'image/webp'],
-        remotePatterns: [],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'github.com',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'i.imgur.com',
+                pathname: '**',
+            },
+        ],
     },
 }
 

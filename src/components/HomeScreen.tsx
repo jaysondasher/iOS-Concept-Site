@@ -3,46 +3,8 @@ import Image from 'next/image';
 import AppIcon from './AppIcon';
 import { ProfileWidget } from './Widget';
 import StatusBar from './StatusBar';
-
-// Sample project data (to be replaced with real data later)
-const projects = [
-    {
-        name: 'Project 1',
-        icon: '/icons/rocket.svg',
-        url: 'https://example.com/project1',
-        color: '#FF3B30'
-    },
-    {
-        name: 'Project 2',
-        icon: '/icons/code.svg',
-        url: 'https://example.com/project2',
-        color: '#34C759'
-    },
-    {
-        name: 'Project 3',
-        icon: '/icons/gamepad.svg',
-        url: 'https://example.com/project3',
-        color: '#007AFF'
-    },
-    {
-        name: 'Project 4',
-        icon: '/icons/mobile.svg',
-        url: 'https://example.com/project4',
-        color: '#5856D6'
-    },
-    {
-        name: 'Project 5',
-        icon: '/icons/palette.svg',
-        url: 'https://example.com/project5',
-        color: '#FF9500'
-    },
-    {
-        name: 'Project 6',
-        icon: '/icons/search.svg',
-        url: 'https://example.com/project6',
-        color: '#AF52DE'
-    }
-];
+import AppGrid from './AppGrid';
+import { useAppData } from '@/hooks/useAppData';
 
 // Dock apps (commonly used apps in iOS)
 const dockApps = [
@@ -77,6 +39,8 @@ interface HomeScreenProps {
 }
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ isMobile }) => {
+    const { apps, loading, error } = useAppData();
+
     return (
         <div className="h-full w-full relative">
             {/* Wallpaper */}
@@ -100,21 +64,21 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ isMobile }) => {
                 </div>
 
                 {/* App Grid */}
-                <div className={`grid ${isMobile ? 'grid-cols-4 gap-4' : 'grid-cols-6 gap-8'} mt-8`}>
-                    {projects.map((project, index) => (
-                        <AppIcon
-                            key={index}
-                            name={project.name}
-                            icon={project.icon}
-                            url={project.url}
-                            color={project.color}
-                        />
-                    ))}
-                </div>
+                {loading ? (
+                    <div className="flex justify-center items-center h-32">
+                        <div className="animate-pulse text-white opacity-70">Loading apps...</div>
+                    </div>
+                ) : error ? (
+                    <div className="flex justify-center items-center h-32">
+                        <div className="text-red-400">{error}</div>
+                    </div>
+                ) : (
+                    <AppGrid apps={apps} isMobile={isMobile} />
+                )}
             </div>
 
             {/* Dock */}
-            <div className="absolute bottom-8 left-0 right-0 flex justify-center z-10">
+            <div className="absolute bottom-8 left-0 right-0 flex justify-center z-[50]">
                 <div className="ios-dock">
                     <div className="flex gap-6 sm:gap-10">
                         {dockApps.map((app, index) => (
